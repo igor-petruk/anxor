@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Title of document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="jquery.ba-hashchange.js"></script>
+
+    <script type="text/javascript">
+        $(window).hashchange(function(){
+            setupState(location.hash.replace("#",""));
+        });
+
+        function setupState(where){
+            $(".where").text(where);
+        }
+
+        $(function(){
+            $(".button1").click(function(){
+                location.hash="hey";
+                return false;
+            });
+            $(".button2").click(function(){
+                location.hash="you";
+                return false;
+            });
+
+            $(window).hashchange();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="where"></div>
+    <a href="#" class="button1">Button1</a>
+    <a href="#" class="button2">Button2</a>
+</body>
+
+</html>
